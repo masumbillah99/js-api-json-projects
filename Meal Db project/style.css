@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --bangla-font: 'Tiro Bangla', serif;
+}
+
+.bangla-font {
+    font-family: var(--bangla-font);
+}
+
+/* body style start here */
+
+body {
+    font-family: var(--primary-font);
+}
+
+/* header style start */
+.header-navbar {
+    box-shadow: 0 0.2rem 1rem rgb(0 0 0 / 12%);
+}
+
+.logo-img {
+    width: 70px;
+}
+
+.header-body {
+    background-image: url(./images/food-banner.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+/* header style start */
