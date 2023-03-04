@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-font: 'Inter', sans-serif;
+}
+
+/* body style start here */
+body {
+    font-family: var(--primary-font);
+}
+
+/* .card-col {
+    width: 285px;
+    height: 220px;
+    margin-bottom: 11px;
+} */
