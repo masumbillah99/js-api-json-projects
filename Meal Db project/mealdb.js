@@ -10,7 +10,7 @@ const displayMeal = (meals) => {
     const mealContainer = document.getElementById('meal-container');
     mealContainer.innerHTML = '';
     meals.forEach((meal) => {
-        console.log(meal);
+        // console.log(meal);
         const mealDiv = document.createElement('div');
         mealDiv.classList.add('col');
         mealDiv.innerHTML = `
@@ -36,14 +36,4 @@ const searchMeals = () => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-loadMeal('fish');
+loadMeal('pasta');

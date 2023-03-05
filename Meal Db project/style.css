@@ -37,6 +37,7 @@ body {
     background-position: right;
 }
 
+
 /* header style end */
 .img-animation {
     transform: scale(1);
@@ -46,4 +47,19 @@ body {
 
 .img-animation:hover {
     transform: scale(1.1);
+}
+
+
+/* footer */
+footer {
+    background-color: #282C2F;
+}
+
+.link-animation {
+    background-color: #33383B;
+    transition: 0.3s ease-in-out;
+}
+
+.link-animation:hover {
+    background-color: rgb(11, 101, 11)
 }
