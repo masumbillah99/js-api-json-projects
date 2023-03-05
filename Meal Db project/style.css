@@ -16,7 +16,7 @@
     font-family: var(--bangla-font);
 }
 
-/* body style start here */
+/* ----- body style start here ------ */
 
 body {
     font-family: var(--primary-font);
@@ -37,4 +37,13 @@ body {
     background-position: right;
 }
 
-/* header style start */
+/* header style end */
+.img-animation {
+    transform: scale(1);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.img-animation:hover {
+    transform: scale(1.1);
+}
