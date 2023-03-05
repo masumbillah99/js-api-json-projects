@@ -1,8 +1,25 @@
 const loadMeal = async (searchText) => {
+    // const inputField = document.getElementById('search-field').value;
+    // const restuTitle = document.getElementById('restu-title');
+    // const noFoundMsg = document.getElementById('no-found-message');
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayMeal(data.meals);
+    // if (inputField) {
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => displayMeal(data.meals))
+    //         .catch((err) => {
+    //             noFoundMsg.classList.remove('d-none');
+    //             restuTitle.classList.add('d-none');
+    //         })
+    // }
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayMeal(data.meals);
+    } catch (error) {
+        showErrorMsg();
+    }
+
 }
 
 const displayMeal = (meals) => {
@@ -31,9 +48,30 @@ const displayMeal = (meals) => {
 }
 
 const searchMeals = () => {
-    const searchText = document.getElementById('search-field').value;
-    loadMeal(searchText);
+    const inputField = document.getElementById('search-field').value;
+    const restuTitle = document.getElementById('restu-title');
+    const noFoundMsg = document.getElementById('no-found-message');
+    if (inputField) {
+        loadMeal(inputField);
+        noFoundMsg.classList.add('d-none');
+    } else {
+        noFoundMsg.classList.remove('d-none');
+        restuTitle.classList.add('d-none');
+    }
 }
+
+const showErrorMsg = () => {
+    // const noFoundMsg = document.getElementById('no-found-message');
+    // noFoundMsg.classList.remove('d-none');
+    // sweet alert for error
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+    })
+}
+
 
 
 loadMeal('pasta');

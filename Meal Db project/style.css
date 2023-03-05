@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 
 * {
     margin: 0;
@@ -7,13 +8,20 @@
     box-sizing: border-box;
 }
 
+/* common styles */
+
 :root {
     --primary-font: 'Montserrat', sans-serif;
     --bangla-font: 'Tiro Bangla', serif;
+    --logo-font: 'Rampart One', cursive;
 }
 
 .bangla-font {
     font-family: var(--bangla-font);
+}
+
+.logo-font {
+    font-family: var(--logo-font);
 }
 
 /* ----- body style start here ------ */
@@ -22,23 +30,31 @@ body {
     font-family: var(--primary-font);
 }
 
+
 /* header style start */
 .header-navbar {
     box-shadow: 0 0.2rem 1rem rgb(0 0 0 / 12%);
 }
 
 .logo-img {
-    width: 70px;
+    width: 65px;
 }
 
 .header-body {
     background-image: url(./images/food-banner.jpg);
     background-repeat: no-repeat;
     background-position: right;
+    height: 463px;
 }
 
+.hr-line {
+    background-color: #33383B;
+    height: 79px;
+}
 
 /* header style end */
+
+
 .img-animation {
     transform: scale(1);
     transition: .5s ease-in-out;
