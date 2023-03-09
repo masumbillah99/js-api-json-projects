@@ -24,7 +24,7 @@
             <div class="d-flex align-items-center">
                 <img class="logo-img me-4" src="./images/profile.png" alt="">
                 <div class="border-end border-1 hr-line"></div>
-                <a href="#" class="text-decoration-none text-danger ms-4">
+                <a href="#" class="text-decoration-none text-danger ms-4 fs-2">
                     <i class="fa-solid fa-store"></i>
                 </a>
             </div>
@@ -38,7 +38,7 @@
                     resturants</h2>
                 <div class="d-flex justify-content-center align-items-center mt-5">
                     <input id="search-field" type="text" class="form-control w-50 py-3 px-5"
-                        placeholder="Enter food name">
+                        placeholder="Enter food name" value="chicken">
                     <button onclick="searchMeals()"
                         class="btn btn-primary fs-4 text-white py-2 px-4 ms-3">Search</button>
                 </div>
@@ -49,13 +49,13 @@
     <main>
         <!-- food item section -->
         <section class="container my-5">
-            <h1 id="restu-title">Popular Resturants</h1>
+            <h1 id="restu-title" class="d-none">Popular Resturants</h1>
 
-            <div id="meal-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 my-3">
+            <div id="meal-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-3">
             </div>
 
             <!-- current food container -->
-            <div class="row row-cols-1 row-cols-md-2 row-cols-md-4 g-4">
+            <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-md-4 g-4">
                 <div class="col">
                     <div class="card h-100">
                         <img src="..." class="card-img-top" alt="...">
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- not found message -->
             <div id="no-found-message" class="w-75 bg-warning mx-auto my-3 p-5 text-center rounded-4 d-none">
@@ -103,8 +103,17 @@
             </div>
 
             <!-- show all food item -->
-            <div class="text-center mt-5 mb-3 d-none">
+            <div id="show-all" class="text-center mt-5 mb-3 d-none">
                 <button id="show-all-btn" class="btn btn-primary">Show All</button>
+            </div>
+        </section>
+
+        <!-- loading spinners -->
+        <section id="loading-spinner" class="d-none">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </section>
     </main>
