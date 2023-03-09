@@ -50,7 +50,7 @@ const displayMeals = (meals, dataLimit) => {
                         <div class="text-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     </div>
                 </p>
-                <button onclick="loadMealDetails(${meal.idMeal})" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#mealDetailModal">Show Details</button>
+                <button onclick="loadMealDetails(${meal.idMeal})" class="btn btn-outline-primary"  data-bs-toggle="modal" data-bs-target="#mealDetailModal">Quick View</button>
             </div>
         </div>
     `;
@@ -65,15 +65,18 @@ const displayMeals = (meals, dataLimit) => {
 const processSearch = (dataLimit) => {
     // start loader
     toggleSpinner(true);
+    const noFoundMsg = document.getElementById('no-found-message');
+    const restuTitle = document.getElementById("restu-title");
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
-    const restuTitle = document.getElementById("restu-title");
     if (searchText) {
         loadMeals(searchText, dataLimit);
         restuTitle.classList.remove('d-none');
+        noFoundMsg.classList.add('d-none');
     } else {
         alert(`Empty input field!!  Please write phone name`);
         toggleSpinner(false);
+        noFoundMsg.classList.remove('d-none');
     }
     // searchField.value = '';
 }
@@ -116,30 +119,15 @@ const loadMealDetails = async (id) => {
 }
 
 const showMealDetails = (meal) => {
-    // console.log(meal);
-    // const ins = () => {
-    //     const instruc = meal.strInstructions;
-    //     const instrucSplit = instruc.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
-    //     // let sent;
-    //     for (const sentence of instrucSplit) {
-    //         const sent = sentence;
-    //         // console.log(sent);
-    //         return sent;
-    //     }
-    // }
-
-    // const instructions = ins();
-    // console.log(instructions);
-
     const mealdetails = document.getElementById('meal-details');
     mealdetails.innerHTML = `
         <div class="">
             <img src="${meal.strMealThumb}" class="img-width" alt="">
         </div>        
-        <div class="pt-3">
+        <div class="pt-3 px-4">
             <h3>${meal.strMeal}, ${meal.strArea}, ${meal.strCategory}</h3>
             <p>This Food taste is very yummmmy! Sweet and very interesting. Don't forget to try this.</p>
-            <div class="d-flex justify-content-between px-5">
+            <div class="d-flex justify-content-between px-2 px-md-5">
                 <p><span class="fw-bold fs-3">₹ 99</span> (inc. Tax)</p>
                 <button class="btn btn-outline-success px-4 py-1">Buy Now</button>
             </div>
@@ -147,7 +135,7 @@ const showMealDetails = (meal) => {
             <div>
                 <h3 class="pb-3"><i>Let's make this yummy food.....</i></h3>
                 <h5><u>Ingredients Need:</u></h5>
-                <ul class="fw-medium ps-5">
+                <ul class="fw-medium ps-2 ps-md-5">
                     <li>${meal.strIngredient1} - ${meal.strMeasure1}</li>
                     <li>${meal.strIngredient2} - ${meal.strMeasure2}</li>
                     <li>${meal.strIngredient3} - ${meal.strMeasure3}</li>
@@ -157,7 +145,7 @@ const showMealDetails = (meal) => {
                     <li>${meal.strIngredient7} - ${meal.strMeasure7}</li>
                 </ul>
                 <h5><u>Recipe:</u></h5>
-                <ol id="meal-instructions" class="fw-medium ps-5">
+                <ol id="meal-instructions" class="fw-medium ps-2 ps-md-5">
                 </ol>
             </div>
             <p class="fw-bold text-warning-emphasis d-flex justify-content-end align-items-center mb-3">
