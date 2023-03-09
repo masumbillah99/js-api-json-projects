@@ -28,13 +28,19 @@ const loadMeals = async (searchText, dataLimit) => {
 
 
 const displayMeal = (meals, dataLimit) => {
-    // console.log(meals);
     const mealContainer = document.getElementById('meal-container');
     mealContainer.innerHTML = '';
 
     // display 10 food items only (not a perfect way)
     const showAll = document.getElementById('show-all');
     const noFoundMsg = document.getElementById('no-found-message');
+    if (meals.length > 9) {
+        // console.log(meals);
+        meals = meals.slice(0, 9);
+        showAll.classList.remove('d-none');
+    } else {
+        showAll.classList.add('d-none');
+    }
 
     /** 
     if (dataLimit && meals.length > 6) {
@@ -76,6 +82,7 @@ const displayMeal = (meals, dataLimit) => {
 }
 
 const searchMeals = (dataLimit) => {
+    // start spinner / loader
     toggleSpinner(true);
     const inputField = document.getElementById('search-field').value;
     const restuTitle = document.getElementById('restu-title');
@@ -87,15 +94,15 @@ const searchMeals = (dataLimit) => {
     } else {
         toggleSpinner(false);
         alert('no input found');
-        return;
     }
 }
 
-// not the best way to load show all
-document.getElementById('show-all-btn').addEventListener('click', () => {
-    searchMeals(6);
+// handler search button click
+document.getElementById('search-btn').addEventListener('click', () => {
+    searchMeals(9);
 });
 
+// show error message function
 const showErrorMsg = () => {
     // const noFoundMsg = document.getElementById('no-found-message');
     // noFoundMsg.classList.remove('d-none');
@@ -127,6 +134,12 @@ const toggleSpinner = (isLoading) => {
         loaderSection.classList.add('d-none');
     }
 }
+
+// not the best way to load show all
+document.getElementById('show-all-btn').addEventListener('click', () => {
+    searchMeals();
+});
+
 
 
 // loadMeals('chicken');
