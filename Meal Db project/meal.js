@@ -39,7 +39,8 @@ const displayMeals = (meals, dataLimit) => {
                 <img src="${meal.strMealThumb}" class="card-img-top img-animation" alt="...">
             </div>
             <div class="card-body">
-                <h5 class="card-title">${meal.strMeal} - ${meal.strArea}</h5>
+                <h4 class="card-title">${meal.strMeal}</h4>
+                <h5 class="card-title text-secondary">${meal.strArea}</h5>
                 <p class="card-text">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -115,15 +116,69 @@ const loadMealDetails = async (id) => {
 }
 
 const showMealDetails = (meal) => {
-    console.log(meal);
-    const modalTitle = document.getElementById('mealDetailModalLabel');
-    modalTitle.innerText = meal.strMeal;
+    // console.log(meal);
+    // const ins = () => {
+    //     const instruc = meal.strInstructions;
+    //     const instrucSplit = instruc.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+    //     // let sent;
+    //     for (const sentence of instrucSplit) {
+    //         const sent = sentence;
+    //         // console.log(sent);
+    //         return sent;
+    //     }
+    // }
+
+    // const instructions = ins();
+    // console.log(instructions);
+
     const mealdetails = document.getElementById('meal-details');
-    // mealdetails.innerHTML = a;
+    mealdetails.innerHTML = `
+        <div class="">
+            <img src="${meal.strMealThumb}" class="img-width" alt="">
+        </div>        
+        <div class="pt-3">
+            <h3>${meal.strMeal}, ${meal.strArea}, ${meal.strCategory}</h3>
+            <p>This Food taste is very yummmmy! Sweet and very interesting. Don't forget to try this.</p>
+            <div class="d-flex justify-content-between px-5">
+                <p><span class="fw-bold fs-3">₹ 99</span> (inc. Tax)</p>
+                <button class="btn btn-outline-success px-4 py-1">Buy Now</button>
+            </div>
+            <hr class="border-warning border-3 my-3">
+            <div>
+                <h3 class="pb-3"><i>Let's make this yummy food.....</i></h3>
+                <h5><u>Ingredients Need:</u></h5>
+                <ul class="fw-medium ps-5">
+                    <li>${meal.strIngredient1} - ${meal.strMeasure1}</li>
+                    <li>${meal.strIngredient2} - ${meal.strMeasure2}</li>
+                    <li>${meal.strIngredient3} - ${meal.strMeasure3}</li>
+                    <li>${meal.strIngredient4} - ${meal.strMeasure4}</li>
+                    <li>${meal.strIngredient5} - ${meal.strMeasure5}</li>
+                    <li>${meal.strIngredient6} - ${meal.strMeasure6}</li>
+                    <li>${meal.strIngredient7} - ${meal.strMeasure7}</li>
+                </ul>
+                <h5><u>Recipe:</u></h5>
+                <ol id="meal-instructions" class="fw-medium ps-5">
+                </ol>
+            </div>
+            <p class="fw-bold text-warning-emphasis d-flex justify-content-end align-items-center mb-3">
+                <i class="fa-solid fa-shop"></i> <span class="ps-2">Shohid Resturants</span> 
+            </p>
+        </div>
+    `;
+
+    const instruc = meal.strInstructions;
+    const instrucSplit = instruc.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
+    instrucSplit.forEach((sentence) => {
+        const mealInstructions = document.getElementById('meal-instructions');
+        const li = document.createElement('li');
+        li.style.paddingBottom = '10px';
+        li.innerHTML = sentence;
+        mealInstructions.appendChild(li);
+    });
 }
 
 
 
 
 
-loadMeals('chicken');
+// loadMeals('chicken');

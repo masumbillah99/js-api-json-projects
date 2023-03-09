@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
 
@@ -11,7 +11,7 @@
 /* common styles */
 
 :root {
-    --primary-font: 'Montserrat', sans-serif;
+    --primary-font: 'Open Sans', sans-serif;
     --bangla-font: 'Tiro Bangla', serif;
     --logo-font: 'Rampart One', cursive;
 }
@@ -54,7 +54,6 @@ body {
 
 /* header style end */
 
-
 .img-animation {
     transform: scale(1);
     transition: .5s ease-in-out;
@@ -63,6 +62,10 @@ body {
 
 .img-animation:hover {
     transform: scale(1.1);
+}
+
+.img-width {
+    width: 100%;
 }
 
 
