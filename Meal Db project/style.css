@@ -1,84 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tiro+Bangla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* common styles */
 
 :root {
-    --primary-font: 'Open Sans', sans-serif;
-    --bangla-font: 'Tiro Bangla', serif;
-    --logo-font: 'Rampart One', cursive;
+  --primary-font: "Open Sans", sans-serif;
+  --bangla-font: "Tiro Bangla", serif;
+  --logo-font: "Rampart One", cursive;
 }
 
 .bangla-font {
-    font-family: var(--bangla-font);
+  font-family: var(--bangla-font);
 }
 
 .logo-font {
-    font-family: var(--logo-font);
+  font-family: var(--logo-font);
 }
 
 /* ----- body style start here ------ */
 
 body {
-    font-family: var(--primary-font);
+  font-family: var(--primary-font);
 }
-
 
 /* header style start */
 .header-navbar {
-    box-shadow: 0 0.2rem 1rem rgb(0 0 0 / 12%);
+  box-shadow: 0 0.2rem 1rem rgb(0 0 0 / 12%);
 }
 
 .logo-img {
-    width: 65px;
+  width: 65px;
 }
 
 .header-body {
-    background-image: url(./images/food-banner.jpg);
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 463px;
+  background-image: url(./images/banner.jpg),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  color: white;
 }
 
 .hr-line {
-    background-color: #33383B;
-    height: 79px;
+  background-color: #33383b;
+  height: 79px;
 }
 
 /* header style end */
 
+#search-field:focus {
+  outline: none;
+}
+
 .img-animation {
-    transform: scale(1);
-    transition: .5s ease-in-out;
-    cursor: pointer;
+  transform: scale(1);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .img-animation:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .img-width {
-    width: 100%;
+  width: 100%;
 }
 
+.modal-div {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.modal-img {
+  width: 100%;
+}
 
 /* footer */
 footer {
-    background-color: #282C2F;
+  background-color: #17233b;
 }
 
 .link-animation {
-    background-color: #33383B;
-    transition: 0.3s ease-in-out;
+  background-color: #33383b;
+  transition: 0.3s ease-in-out;
 }
 
 .link-animation:hover {
-    background-color: rgb(11, 101, 11)
+  background-color: rgb(11, 101, 11);
 }

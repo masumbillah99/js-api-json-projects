@@ -1,166 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MealDB Foodpanda</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/4f223adb3d.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/4f223adb3d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <header class="">
-        <section class="d-flex justify-content-between align-items-center header-navbar px-2 px-md-5">
-            <div>
-                <a href="#" class="text-decoration-none logo-font text-black">
-                    <h3>mealpanda</h3>
-                </a>
-            </div>
-            <div class="d-flex align-items-center">
-                <a href="#" class="text-decoration-none text-danger me-4 fs-2">
-                    <i class="fa-solid fa-store"></i>
-                </a>
-                <div class="border-end border-1 hr-line"></div>
-                <img class="logo-img ms-3" src="./images/profile.png" alt="">
-            </div>
-        </section>
+      <section
+        class="d-flex justify-content-between align-items-center header-navbar px-2 px-md-5"
+      >
+        <div>
+          <a href="#" class="text-decoration-none logo-font text-black">
+            <h3>mealpanda</h3>
+          </a>
+        </div>
+        <div class="d-flex align-items-center">
+          <a href="#" class="text-decoration-none text-danger me-4 fs-2">
+            <i class="fa-solid fa-store"></i>
+          </a>
+          <div class="border-end border-1 hr-line"></div>
+          <img class="logo-img ms-3" src="./images/profile.png" alt="" />
+        </div>
+      </section>
 
-        <!-- header body section -->
-        <section class="header-body">
-            <div class="container py-5">
-                <h2 class="pb-3">Bangladeshi No.99 online food delivery app. <br>Food delivery from <span
-                        class="fw-bold fs-1 bangla-font">কুমিল্লা</span>'s best <br>
-                    resturants</h2>
-                <div class="d-flex justify-content-center align-items-center mt-5">
-                    <input id="search-field" type="text" class="form-control w-50 py-3 px-2 px-md-5"
-                        placeholder="Enter food name like (chicken)">
-                    <button id="search-btn" class="btn btn-primary fs-4 text-white py-2 px-4 ms-3">Search</button>
-                </div>
-            </div>
-        </section>
+      <!-- header body section -->
+      <section class="header-body">
+        <div class="container py-5 text-center">
+          <h2 class="pb-2">Search and buy your favorite food from here.</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+            aut est, ullam, sit harum quod quaerat itaque nulla perspiciatis
+            nesciunt consectetur reiciendis. Voluptates nam ratione, cupiditate
+            accusantium rerum cumque error.
+          </p>
+          <div class="d-flex justify-content-center align-items-center mt-5">
+            <input
+              id="search-field"
+              type="text"
+              class="form-control w-75 py-3 px-2 px-md-5"
+              placeholder="Enter food name like (chicken)"
+            />
+            <button
+              id="search-btn"
+              class="btn btn-primary fs-4 text-white py-2 px-4 ms-3"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </section>
     </header>
 
     <main>
-        <!-- food item section -->
-        <section class="container my-5">
-            <h1 id="restu-title" class="d-none">Yummm'my! Tasty Foods</h1>
+      <!-- food item section -->
+      <section class="container-lg my-5">
+        <h1 id="restu-title" class="d-none">All Your Tasty Foods Here!</h1>
 
-            <div id="meal-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-3">
-            </div>
+        <div
+          id="meal-container"
+          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 my-3"
+        ></div>
 
-            <!-- Modal section -->
-            <section>
-                <div class="modal fade" id="mealDetailModal" tabindex="-1" aria-labelledby="mealDetailModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- <h1 class="modal-title fs-5" id="mealDetailModalLabel"></h1> -->
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div id="meal-details" class="modal-body mx-auto px-1 px-md-5 overflow-hidden">
-
-                            </div>
-                        </div>
-                    </div>
+        <!-- Modal section -->
+        <section>
+          <div
+            class="modal fade"
+            id="mealDetailModal"
+            tabindex="-1"
+            aria-labelledby="mealDetailModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <!-- <h1 class="modal-title fs-5" id="mealDetailModalLabel"></h1> -->
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
-            </section>
-
-            <!-- not found message -->
-            <div id="no-found-message" class="w-75 bg-warning mx-auto my-3 p-5 text-center rounded-4 d-none">
-                <h3 class="text-primary">No Food item found, Please try a new search!</h3>
+                <div
+                  id="meal-details"
+                  class="modal-body mx-auto px-1 px-md-5 overflow-hidden"
+                ></div>
+              </div>
             </div>
-
-            <!-- show all food item -->
-            <div id="show-all" class="text-center mt-5 mb-3 d-none">
-                <button id="show-all-btn" class="btn btn-primary">Show All</button>
-            </div>
+          </div>
         </section>
 
-        <!-- loading spinners -->
-        <section id="loading-spinner" class="d-none">
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </section>
+        <!-- not found message -->
+        <div
+          id="no-found-message"
+          class="w-75 mx-auto my-3 p-5 text-center rounded-4 d-none"
+        >
+          <h3 class="text-primary">
+            No Food item found, Please try a new search!
+          </h3>
+        </div>
+
+        <!-- show all food item -->
+        <div id="show-all" class="text-center mt-5 mb-3 d-none">
+          <button id="show-all-btn" class="btn btn-primary">Show All</button>
+        </div>
+      </section>
+
+      <!-- loading spinners -->
+      <section id="loading-spinner" class="d-none">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- footer -->
     <footer class="text-white mt-5 py-5">
-        <section class="container">
-            <div class="row justify-content-between align-items-center px-2 px-lg-0">
-                <div class="col-sm-12 col-md-6">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <span class="bg-secondary bg-opacity-50 mb-1 px-3 py-2 rounded-circle">
-                            <i class="fa-solid fa-location-dot text-white"></i>
-                        </span>
-                        <h5>21 Vangha Street Gazipur, Dhaka</h5>
-                    </div>
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <span class="bg-secondary bg-opacity-50 mb-1 px-3 py-2 rounded-circle">
-                            <i class="fa-solid fa-phone text-white"></i>
-                        </span>
-                        <h5>+88 10 796 391869</h5>
-                    </div>
-                    <div class="d-flex align-items-center gap-3">
-                        <span class="bg-secondary bg-opacity-50 mb-1 px-3 py-2 rounded-circle">
-                            <i class="fa-solid fa-envelope text-white"></i>
-                        </span>
-                        <h5>support@company.com</h5>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6 pt-5 pt-lg-0">
-                    <h3 class="mb-4">About the company</h3>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ab ipsam eaque corrupti repellat
-                        eum
-                        assumenda ratione quas voluptatum beatae quis numquam nam laboriosam repellendus at, vel iste
-                        dolor
-                        explicabo!
-                    </p>
-                    <!-- social links -->
-                    <div class="d-flex gap-3 mt-5">
-                        <a href="https://github.com/masumbillah99" target="_blank"
-                            class="text-decoration-none text-white p-3 rounded cursor link-animation">
-                            <i class="fa-brands fa-github fs-4"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/masumbillah99/" target="_blank"
-                            class="text-decoration-none text-white p-3 rounded cursor link-animation">
-                            <i class="fa-brands fa-linkedin fs-4"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@awebtutor9986" target="_blank"
-                            class="text-decoration-none text-white p-3 rounded cursor link-animation">
-                            <i class="fa-brands fa-youtube fs-4"></i>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100036766350727" target="_blank"
-                            class="text-decoration-none text-white p-3 rounded cursor link-animation">
-                            <i class="fa-brands fa-facebook fs-4"></i>
-                        </a>
-                        <a href="https://www.twitter.com/masumbillah99"
-                            class="text-decoration-none text-white p-3 rounded cursor link-animation">
-                            <i class="fa-brands fa-twitter fs-4"></i>
-                        </a>
-                    </div>
-                </div>
+      <section class="container">
+        <div
+          class="row justify-content-between align-items-center px-2 px-lg-0"
+        >
+          <div class="col-sm-12 col-md-6">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span
+                class="bg-secondary bg-opacity-50 mb-1 px-3 py-2 rounded-circle"
+              >
+                <i class="fa-solid fa-location-dot text-white"></i>
+              </span>
+              <h5>21 Vangha Street Gazipur, Dhaka</h5>
             </div>
-        </section>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span
+                class="bg-secondary bg-opacity-50 mb-1 px-3 py-2 rounded-circle"
+              >
+                <i class="fa-solid fa-phone text-white"></i>
+              </span>
+              <h5>+88 10 796 391869</h5>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <span
+                class="bg-secondary bg-opacity-50 mb-1 px-3 py-2 rounded-circle"
+              >
+                <i class="fa-solid fa-envelope text-white"></i>
+              </span>
+              <h5>support@company.com</h5>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 pt-5 pt-lg-0">
+            <h3 class="mb-4">About the company</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est ab
+              ipsam eaque corrupti repellat eum assumenda ratione quas
+              voluptatum beatae quis numquam nam laboriosam repellendus at, vel
+              iste dolor explicabo!
+            </p>
+            <!-- social links -->
+            <div class="d-flex gap-3 mt-5">
+              <a
+                href="https://github.com/masumbillah99"
+                target="_blank"
+                class="text-decoration-none text-white p-3 rounded cursor link-animation"
+              >
+                <i class="fa-brands fa-github fs-4"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mdmasumbillah99"
+                target="_blank"
+                class="text-decoration-none text-white p-3 rounded cursor link-animation"
+              >
+                <i class="fa-brands fa-linkedin fs-4"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@awebtutor9986"
+                target="_blank"
+                class="text-decoration-none text-white p-3 rounded cursor link-animation"
+              >
+                <i class="fa-brands fa-youtube fs-4"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/muhammadmasum99"
+                target="_blank"
+                class="text-decoration-none text-white p-3 rounded cursor link-animation"
+              >
+                <i class="fa-brands fa-facebook fs-4"></i>
+              </a>
+              <a
+                href="https://www.twitter.com/masumbillah99"
+                class="text-decoration-none text-white p-3 rounded cursor link-animation"
+              >
+                <i class="fa-brands fa-twitter fs-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </footer>
 
     <!-- <script src="./mealdb.js"></script> -->
     <script src="./meal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-        </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
 </html>
