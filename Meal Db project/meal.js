@@ -175,4 +175,16 @@ const showMealDetails = (meal) => {
   });
 };
 
+/** show random count number */
+const randomMembersNum = () => {
+  const randomMember = Math.floor(10000000 * Math.random());
+  const randomRestu = Math.floor(10000 * Math.random());
+  const randomFeatRestu = Math.floor(1000 * Math.random());
+  document.getElementById("members-number").innerText = randomMember;
+  document.getElementById("restu-number").innerText = randomRestu;
+  document.getElementById("feat-restu").innerText = randomFeatRestu;
+};
+
+randomMembersNum();
+
 // loadMeals("chicken");
