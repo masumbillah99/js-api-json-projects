@@ -35,7 +35,7 @@ section#todos-list {
     margin-bottom: 30px;
 }
 
-section#todos-list div {
+section#todos-list .new-list-div {
     width: 300px;
     display: flex;
     justify-content: space-between;
@@ -50,6 +50,7 @@ section#todos-list div button {
     color: white;
     background-color: rgb(12, 12, 129);
     cursor: pointer;
+    padding-left: 20px;
 }
 
 /* add todo section style */
@@ -73,4 +74,22 @@ section#todos-list div button {
     padding: 8px 10px;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* edit todo list */
+.edit-input {
+    width: 300px;
+    padding: 7px 10px;
+}
+
+.save-btn{
+    border: none;
+    background-color: salmon;
+    padding: 8px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: red;
 }

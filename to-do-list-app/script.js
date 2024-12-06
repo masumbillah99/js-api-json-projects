@@ -34,26 +34,40 @@ const showTodos = () => {
 
     todos?.forEach((todo) => {
         const newListDiv = document.createElement('div');
-        newListDiv.id = `todo-${todo?.id}`;
+        newListDiv.classList.add("new-list-div");
 
         const h5 = document.createElement('h5');
         h5.textContent = todo?.title;
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.id = `delete-btn-${todo?.id}`;
-        deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        const btnDiv = document.createElement('div');
+
+        const editBtn = document.createElement('button');
+        editBtn.id = "edit-btn";
+        editBtn.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+
+        const trashBtn = document.createElement('button');
+        trashBtn.id = `trash-btn-${todo?.id}`;
+        trashBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
         newListDiv.appendChild(h5);
-        newListDiv.appendChild(deleteBtn);
+        btnDiv.appendChild(editBtn);
+        btnDiv.appendChild(trashBtn);
+        newListDiv.appendChild(btnDiv);
         todoList.appendChild(newListDiv);
 
-        // add event in delete icon
-        deleteBtn.addEventListener('click', () => {
+        // edit button event handler
+        editBtn.addEventListener('click', () => {
+            editTodoList(newListDiv, todo?.id);
+        })
+
+        // delete button event handler
+        trashBtn.addEventListener('click', () => {
             deleteToDoList(newListDiv, todo?.id);
         })
     });
 }
 
+// submit button event handler
 submitBtn.addEventListener('click', () => {
     // handling empty input
     const textInputValue = textInput.value.trim();
@@ -73,6 +87,63 @@ submitBtn.addEventListener('click', () => {
     textInput.value = '';
     showTodos();
 })
+
+// edit todo list event handler
+const editTodoList = (todoDiv, todoId) => {
+    console.log(todoDiv, todoId);
+    const h5 = document.querySelector('h5');
+    const btnDiv = document.querySelector('div');
+
+    // store the original content & hide the existing elements
+    // const orginalTitle = h5.textContent;
+    h5.style.display = 'none';
+    btnDiv.style.display = 'none';
+
+    let todos = JSON.parse(localStorage.getItem('todos'));
+    todos = todos?.filter((todo) => todo?.id === todoId);
+
+    // create edit ui (input / save / cancel btn)
+    const input = document.createElement('input');
+    input.type = "text";
+    input.value = todos[0]?.title;
+    input.classList.add('edit-input');
+
+    const saveBtn = document.createElement('button');
+    const cancelBtn = document.createElement('button');
+    saveBtn.textContent = "Save";
+    cancelBtn.textContent = "Cancel";
+    saveBtn.classList.add('save-btn');
+    cancelBtn.classList.add('cancel-btn');
+
+    todoDiv.appendChild(input);
+    todoDiv.appendChild(saveBtn);
+    todoDiv.appendChild(cancelBtn);
+
+    // handle save action
+    saveBtn.addEventListener("click", () => {
+        const newTitle = input.value.trim();
+        if (newTitle) {
+            // update title in local storage
+            let todos = JSON.parse(localStorage.getItem('todos')) || [];
+            todos = todos?.map((todo) => todo?.id === todoId ? { ...todo, title: newTitle } : todo);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+
+        input.remove();
+        saveBtn.remove();
+        cancelBtn.remove();
+    })
+
+    // handle cancel action
+    cancelBtn.addEventListener("click", () => {
+        h5.style.display = 'none'
+        btnDiv.style.display = 'none'
+
+        input.remove();
+        saveBtn.remove();
+        cancelBtn.remove();
+    })
+}
 
 // delete todos functionality
 const deleteToDoList = (todo, todoId) => {
